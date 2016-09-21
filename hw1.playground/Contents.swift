@@ -22,11 +22,11 @@ class Words {
 //: ### variables the same type? If not, why?
 
 
-//: [EXPLAIN YOUR ANSWER HERE]
+//: The types of the values passed into the init function and the types of the instance variables are the same.
 
 
 //: ## Q2: Variable Types and Function Types
-    func arePalindromes(_ words: [String]) -> Bool {
+    class func arePalindromes(_ words: [String]) -> Bool {
         let reversedWords = words.map() {String($0.characters.reversed())}
         let numElements = words.count
         
@@ -35,20 +35,21 @@ class Words {
                 return false
             }
         }
+        return true
     }
-//: ### Why does the compiler dislike the **for loop**? Fix it.
+//: ### Why does the compiler dislike the **for loop**? Fix it. The for loop is fine
 //: ### What else is wrong with this function? You may have to refer to (but **not**
 //: ### change) the code at the very bottom. Debug the function.
 
 
-//: [EXPLAIN YOUR ANSWER HERE]
+//: The function was being treated as if it was called on an instance of the class instead of the class itself. Adding "class" in the fucntion definition fixes this issue
 
 
 //: ## Q3: More Functions and Object Initialization
-    class func isAnagram() -> Bool {
-        var countLetters : [Character : Int] //Line X
-        var lenA = self.wordA.characters.count
-        var lenB = self.wordB.characters.count
+    func isAnagram() -> Bool {
+        var countLetters : [Character : Int] = [:]//Line X
+        let lenA = self.wordA.characters.count
+        let lenB = self.wordB.characters.count
         
         if lenA != lenB {
             return false
@@ -75,13 +76,13 @@ class Words {
             }
         }
         
-        for (letter, count) in countLetters {
+        for (_, count) in countLetters {
             if count != 0 {
                 return false
             }
         }
         
-        return nil
+        return true
     }
 //: ### What is the problem with declaring **countLetters** as we do in **Line X**,
 //: ### and then using it in **Line Y**? Fix it (by only changing **Line X**).
@@ -89,7 +90,7 @@ class Words {
 //: ### change) the code at the very bottom. Debug the function.
 
 
-//: [EXPLAIN YOUR ANSWER HERE]
+//: We need to ininailize the dictionary to an empty dictionary on line X. This allows thw code at line Y to run properly because now we can check if a value exists in the initialized dicionary. I fixed some warnings and add a correct return statement for both fucntions above.
     
     
 }

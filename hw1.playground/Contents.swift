@@ -22,7 +22,7 @@ class Words {
 //: ### variables the same type? If not, why?
 
 
-//: The types of the values passed into the init function and the types of the instance variables are the same.
+//: The types of the values passed into the init function and the types of the instance variables are different becasue one is an optional string and one is a string.
 
 
 //: ## Q2: Variable Types and Function Types
